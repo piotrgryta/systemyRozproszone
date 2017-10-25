@@ -27,13 +27,11 @@
 		<profile>
 			<modules>
 				<module>../lib  </module>
-				<module>engine-db-connection-pool</module>
 			</modules>
 		</profile>
 	</profiles>
 	<artifactId>library-build</artifactId>
 	<modules>
-		<module>engine-db-connection-pool</module>
 		<module>../library</module>
 	</modules>
 </project>

@@ -17,7 +17,7 @@ public class MainController {
 	
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/admin")
-	public ModelAndView hooje(){
+	public ModelAndView admin(){
 		ModelAndView model = new ModelAndView();
 		String message = "<br><div style='text-align:center;'>"
 				+ "<h3>******ADMIN VIEW TEST****</div><br><br>";
