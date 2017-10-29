@@ -27,7 +27,7 @@ public class CustomAuthenticationSuccessUrlHandler extends SavedRequestAwareAuth
 	Properties appConf;
 
 	
-	@Override /////////////////888888888888888
+	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws ServletException, IOException {
 		

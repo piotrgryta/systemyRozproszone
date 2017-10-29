@@ -57,7 +57,6 @@ public class FilterSecurityMetadataSource implements FilterInvocationSecurityMet
 		
 		List<ConfigAttribute> configAttributes = new ArrayList<>(0);
 		
-		//TODO change user to user service
 		User user = userService.getUser();
 		if (user != null)
 			loadRequestMap();

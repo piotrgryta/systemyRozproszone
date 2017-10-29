@@ -3,11 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>pl</groupId>
+	<artifactId>library-build</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>build</name>
+	<name>library-build</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -23,15 +23,8 @@
 		</dependency>
 	</dependencies>
 
-	<profiles>
-		<profile>
-			<modules>
-				<module>../lib  </module>
-			</modules>
-		</profile>
-	</profiles>
-	<artifactId>library-build</artifactId>
 	<modules>
 		<module>../library</module>
 	</modules>
+	<groupId>pl</groupId>
 </project>
