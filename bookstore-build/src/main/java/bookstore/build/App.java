@@ -1,4 +1,4 @@
-package library.build;
+package bookstore.build;
 
 /**
  * Hello world!

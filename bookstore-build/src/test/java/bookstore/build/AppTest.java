@@ -1,4 +1,4 @@
-package library.build;
+package bookstore.build;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
