@@ -56,7 +56,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider, Ser
 
 	@Override
 	public boolean supports(Class<?> arg0) {
-		return true;
+        return true;
 	}
 
 }

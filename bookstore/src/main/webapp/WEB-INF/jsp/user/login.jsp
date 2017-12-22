@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ page isELIgnored="false"%>
 <html>
 <head>
 <title>Login Page</title>
@@ -31,9 +30,10 @@
 				<form:errors path="email"></form:errors>
 				<input name="password" type="password" class="form-control" placeholder="Password" /> 
 				<span>${error}</span> 
-				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 				<form:errors path="password"></form:errors>
 				<button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				
 				<h4 class="text-center">
 					<a href="registration">Create an account</a>
 				</h4>

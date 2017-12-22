@@ -12,11 +12,29 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
 					<webXml>WebContent\WEB-INF\web.xml</webXml>
+					<!-- <warName>bookstore</warName> -->
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<appName>bookstore-pg-dk</appName>
+					<artifactItems>
+						<artifactItem>
+							<groupId>com.github.jsimone</groupId>
+							<artifactId>webapp-runner</artifactId>
+							<version>8.5.23.0</version>
+							<destFileName>webapp-runner.jar</destFileName>
+						</artifactItem>
+					</artifactItems>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -24,6 +42,7 @@
 	<properties>
 		<spring.version>4.0.1.RELEASE</spring.version>
 	</properties>
+
 
 	<dependencies>
 		<dependency>
@@ -73,7 +92,6 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -89,12 +107,22 @@
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-coyote</artifactId>
-			<version>8.0.36</version>
+			<version>8.0.48</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.2.2</version> <!-- makesure correct version here -->
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.5</version>
 		</dependency>
 	</dependencies>
 

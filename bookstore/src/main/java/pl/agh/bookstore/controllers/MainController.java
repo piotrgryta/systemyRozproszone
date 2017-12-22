@@ -8,11 +8,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller(value = "")
 public class MainController {
 
-	@RequestMapping
+	@RequestMapping(value = "/")
 	public ModelAndView init(){
 		String message = "<br><div style='text-align:center;'>"
-				+ "<h3>********** Hello World, Spring MVC Tutorial</h3>This message is coming from CrunchifyHelloWorld.java **********</div><br><br>";
-		return new ModelAndView("welcome", "message", message);
+				+ "<h3>Main page</h3></div><br><br>";
+		return new ModelAndView("main", "message", message);
 	}
 	
 	

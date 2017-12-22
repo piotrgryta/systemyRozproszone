@@ -3,19 +3,21 @@ package pl.agh.bookstore.services;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import pl.agh.bookstore.connection.ConnectionPool;
+import pl.agh.bookstore.connection.DButil;
 import pl.agh.bookstore.security.model.LoginResults;
 import pl.agh.bookstore.security.model.User;
 import pl.agh.bookstore.security.model.UserTypes;
 
 public class UserServiceImpl implements UserService{
 
-	@Autowired
-	ConnectionPool connectionPool;
+	//@Autowired
+	//ConnectionPool connectionPool;
 	
 	@Override
 	public LoginResults logUser(String username, String password) throws Exception {
@@ -25,7 +27,7 @@ public class UserServiceImpl implements UserService{
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
-			con = connectionPool.getConnectionPool();
+			con = DButil.getConnection();//connectionPool.getConnectionPool();
 			ps = con.prepareStatement(query);
 			ps.setString(1, username);
 
@@ -49,7 +51,9 @@ public class UserServiceImpl implements UserService{
 		} catch (Exception e) {
 			throw e;
 		} finally {
-			connectionPool.close(con, ps, rs);
+			con = null;
+			rs = null;
+			ps = null;
 		}
 
 	}
@@ -63,7 +67,7 @@ public class UserServiceImpl implements UserService{
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
-			con = connectionPool.getConnectionPool();
+			con = DButil.getConnection();//.getConnectionPool();
 			ps = con.prepareStatement(query);
 			ps.setString(1, email);
 			rs = ps.executeQuery();
@@ -83,7 +87,10 @@ public class UserServiceImpl implements UserService{
 			e.printStackTrace();
 			return null;
 		} finally {
-			connectionPool.close(con, ps, rs);
+			//connectionPool.close(con, ps, rs);
+			con = null;
+			rs = null;
+			ps = null;
 		}	  
 	}
 
@@ -105,7 +112,7 @@ public class UserServiceImpl implements UserService{
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
-			con = connectionPool.getConnectionPool();
+			con = DButil.getConnection();//.getConnectionPool();
 			ps = con.prepareStatement(query);
 			ps.setString(1, user.getUsername());
 			ps.setString(2, user.getEmail());
@@ -117,9 +124,12 @@ public class UserServiceImpl implements UserService{
 		} catch (Exception e) {
 
 			e.printStackTrace();
-			connectionPool.close(con, ps, rs);
+			//connectionPool.close(con, ps, rs);
 		} finally {
-			connectionPool.close(con, ps, rs);
+			//connectionPool.close(con, ps, rs);
+			con = null;
+			rs = null;
+			ps = null;
 		}
 	}
 
