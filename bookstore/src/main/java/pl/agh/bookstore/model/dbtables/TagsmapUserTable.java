@@ -10,7 +10,7 @@ public enum TagsmapUserTable {
 	private String columnName;
 	
 	private TagsmapUserTable(String columnName){
-		
+		this.columnName = columnName;
 	}
 
 	public String getColumnName() {

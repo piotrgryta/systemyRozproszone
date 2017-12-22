@@ -13,7 +13,7 @@ public enum UsersTable {
 	private String columnName;
 	
 	private UsersTable(String columnName){
-		
+		this.columnName = columnName;
 	}
 
 	public String getColumnName() {

@@ -11,7 +11,7 @@ public enum OrderDetailsTable {
 	private String columnName;
 	
 	private OrderDetailsTable(String columnName){
-		
+		this.columnName = columnName;
 	}
 
 	public String getColumnName() {

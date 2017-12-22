@@ -8,7 +8,7 @@ public enum TagsTable {
 	private String columnName;
 	
 	private TagsTable(String columnName){
-		
+		this.columnName = columnName;
 	}
 
 	public String getColumnName() {

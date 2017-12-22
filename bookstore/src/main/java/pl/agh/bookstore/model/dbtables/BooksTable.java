@@ -14,7 +14,7 @@ public enum BooksTable {
 	private String columnName;
 	
 	private BooksTable(String columnName){
-		
+		this.columnName = columnName;
 	}
 
 	public String getColumnName() {

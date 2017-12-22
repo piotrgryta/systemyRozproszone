@@ -10,7 +10,7 @@ public enum OrdersTable {
 	private String columnName;
 	
 	private OrdersTable(String columnName){
-		
+		this.columnName = columnName;
 	}
 
 	public String getColumnName() {

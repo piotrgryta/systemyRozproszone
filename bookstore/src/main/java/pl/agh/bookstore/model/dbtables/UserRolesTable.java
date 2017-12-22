@@ -9,7 +9,7 @@ public enum UserRolesTable {
 	private String columnName;
 	
 	private UserRolesTable(String columnName){
-		
+		this.columnName = columnName;
 	}
 
 	public String getColumnName() {

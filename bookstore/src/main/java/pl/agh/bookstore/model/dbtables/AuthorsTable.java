@@ -9,7 +9,7 @@ public enum AuthorsTable {
 	private String columnName;
 	
 	private AuthorsTable(String columnName){
-		
+		this.columnName = columnName;
 	}
 
 	public String getColumnName() {

@@ -8,7 +8,7 @@ public enum GenresTable {
 	private String columnName;
 	
 	private GenresTable(String columnName){
-		
+		this.columnName = columnName;
 	}
 
 	public String getColumnName() {
