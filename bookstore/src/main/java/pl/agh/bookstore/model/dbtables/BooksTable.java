@@ -8,7 +8,8 @@ public enum BooksTable {
 	UNITPRICE("unitprice"),
 	UNITS_IN_STOCK("unitsInStock"), 
 	PREMIERE_DATE("premiereDane"),
-	VIEWING("viewing");
+	VIEWING("viewing"),
+	IMAGE("image");
 	
 	
 	private String columnName;
