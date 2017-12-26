@@ -10,8 +10,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -45,7 +43,8 @@ public class FilterSecurityMetadataSource implements FilterInvocationSecurityMet
 	private void loadRequestMap(){
 		requestMap = new LinkedHashMap<>();		
 		requestMap.put(new AntPathRequestMatcher("/**/admin/**"), SecurityConfig.createList("ROLE_" + UserTypes.ADMIN.name(), "ROLE_" + UserTypes.ADMIN_NO_PASSWORD.name()));		
-
+		requestMap.put(new AntPathRequestMatcher("/**/myprofile/**"), SecurityConfig.createList("ROLE_" + UserTypes.USER.name(), "ROLE_" + UserTypes.USER_NO_PASSWORD.name()));		
+		requestMap.put(new AntPathRequestMatcher("/**/order/**"), SecurityConfig.createList("ROLE_" + UserTypes.USER.name(), "ROLE_" + UserTypes.USER_NO_PASSWORD.name()));	
 	}
 	
 	@Override

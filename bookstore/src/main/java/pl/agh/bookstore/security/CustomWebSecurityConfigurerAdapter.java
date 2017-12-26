@@ -56,7 +56,9 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
 			
 		http.authorizeRequests().antMatchers("/").permitAll();
 		http.authorizeRequests().antMatchers("/admin/**").hasAnyRole(UserTypes.ADMIN.name());
-		
+		http.authorizeRequests().antMatchers("/myprofile/**").hasAnyRole(UserTypes.USER.name());
+		http.authorizeRequests().antMatchers("/order/**").hasAnyRole(UserTypes.USER.name());
+
 		http.formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password")
 				.failureHandler(authenticationFailureHandler).successHandler(authenticationSuccessHandler).permitAll();
 		http.logout().permitAll();

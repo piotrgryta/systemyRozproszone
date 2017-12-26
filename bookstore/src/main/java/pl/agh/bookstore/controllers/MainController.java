@@ -13,20 +13,24 @@ public class MainController {
 		String message = "<br><div style='text-align:center;'>"
 				+ "<h3>Main page</h3></div><br><br>";
 		return new ModelAndView("main", "message", message);
-	}
+	}	
 	
-	
-	@RequestMapping(method = RequestMethod.GET, value = "/admin")
-	public ModelAndView admin(){
-		ModelAndView model = new ModelAndView();
+	@RequestMapping(value = "/myprofile", method = RequestMethod.GET)
+	public ModelAndView myProfile(){
 		String message = "<br><div style='text-align:center;'>"
-				+ "<h3>******ADMIN VIEW TEST****</div><br><br>";
-
-		model.addObject("message", message);
-		model.setViewName("admin/admin");
-
-		return model;
-	
+				+ "<h3>Profil page</h3></div><br><br>";
+		return new ModelAndView("main", "message", message);
 	}
-
+	
+	@RequestMapping(value = "/order", method = RequestMethod.GET)
+	public ModelAndView orderDetails(){
+		
+		return new ModelAndView();
+	}
+	
+	@RequestMapping(value = "/order", method = RequestMethod.POST)
+	public String orderDetailsSubmit(){
+		
+		return "redirect:/";
+	}
 }
