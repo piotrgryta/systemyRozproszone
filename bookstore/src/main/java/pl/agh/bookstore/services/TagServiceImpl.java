@@ -12,16 +12,16 @@ import pl.agh.bookstore.model.Book;
 import pl.agh.bookstore.model.dbtables.TagsmapTable;
 import pl.agh.bookstore.model.dbtables.TagsmapUserTable;
 
-public class TagServiceImpl implements TagService{
+public class TagServiceImpl implements TagService {
 
 	@Autowired
 	LibraryService libraryService;
-	
+
 	@Override
 	public LinkedList<Book> getRecommendedBooks(int userId) {
 		LinkedList<Book> books = new LinkedList<>();
 		StringBuilder query = new StringBuilder("Select t.");
-		query.append(TagsmapTable.BOOK_ID.getColumnName()+ ", ");
+		query.append(TagsmapTable.BOOK_ID.getColumnName() + ", ");
 		query.append("sum(" + TagsmapUserTable.VALUE.getColumnName() + ") as val ");
 		query.append("from tags.tagsmap_user u ");
 		query.append("join tags.tagsmap as t on ");
@@ -36,7 +36,7 @@ public class TagServiceImpl implements TagService{
 		try {
 			con = DButil.getConnection();
 			ps = con.prepareStatement(query.toString());
-			ps.setInt(1, userId);			
+			ps.setInt(1, userId);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				books.add(libraryService.getBookById(rs.getInt(1), con));
@@ -44,7 +44,9 @@ public class TagServiceImpl implements TagService{
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
-			con = null;	rs = null; ps = null;
+			con = null;
+			rs = null;
+			ps = null;
 		}
 		return books;
 	}
@@ -63,9 +65,23 @@ public class TagServiceImpl implements TagService{
 
 	@Override
 	public void feedUserRecommendations(int bookId, int userId) {
-		// TODO Auto-generated method stub
-		
+		String query = "Select * from tags.addUserInterests(?, ?)";
+		Connection con = null;
+		PreparedStatement ps = null;
+		try {
+			con = DButil.getConnection();
+			ps = con.prepareStatement(query);
+			ps.setInt(1, bookId);
+			ps.setInt(2, userId);
+			ps.executeQuery();
+			con.commit();
+		} catch (Exception e) {
+
+		} finally {
+			con = null;
+			ps = null;
+		}
+
 	}
 
-	
 }

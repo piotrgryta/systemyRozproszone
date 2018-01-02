@@ -17,9 +17,12 @@ public class MainController {
 	
 	@RequestMapping(value = "/myprofile", method = RequestMethod.GET)
 	public ModelAndView myProfile(){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/profile");
+		mav.addObject("orders", null);
 		String message = "<br><div style='text-align:center;'>"
 				+ "<h3>Profil page</h3></div><br><br>";
-		return new ModelAndView("main", "message", message);
+		return mav;
 	}
 	
 	@RequestMapping(value = "/order", method = RequestMethod.GET)
